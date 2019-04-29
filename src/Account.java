@@ -1,16 +1,16 @@
 
-public class Conta {
+public class Account {
 	private String id;
-	private double saldo;
+	private double balance;
 	
-	protected Conta(String id, double saldo) {
+	protected Account(String id, double balance) {
 		this.id = id;
-		this.saldo = saldo;
+		this.balance = balance;
 	}
 	
-	protected Conta (String id) {
+	protected Account (String id) {
 		this.id = id;
-		this.saldo = 0;
+		this.balance = 0;
 	}
 	
 	public String getId() {
@@ -20,18 +20,18 @@ public class Conta {
 		this.id = id;
 	}
 	
-	public double getSaldo() {
-		return saldo;
+	public double getBalance() {
+		return balance;
 	}
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
+	public void setBalance(double balance) {
+		this.balance = balance;
 	}
 	
-	public boolean creditar (double valor) {
+	public boolean credit (double valor) {
 		boolean operacao = false;
 		
 		if (valor>0) {
-			this.saldo += valor;
+			this.balance += valor;
 			operacao = true;
 			System.out.println(this.id + " crédito +" + valor);
 		}
@@ -41,11 +41,11 @@ public class Conta {
 		return operacao;
 	}
 	
-	public boolean debitar (double valor) {
+	public boolean debit (double valor) {
 		boolean operacao = false;
 		
-		if (valor > 0 && this.saldo >= valor){
-			this.saldo -= valor;
+		if (valor > 0 && this.balance >= valor){
+			this.balance -= valor;
 			operacao = true;
 			System.out.println(this.id + " débito -" + valor);
 		}
@@ -55,13 +55,13 @@ public class Conta {
 		return operacao;
 	}
 	
-	public boolean transferir (double valor, Conta destino) {
+	public boolean transferir (double valor, Account destino) {
 		boolean operacao = false;
 		
 		System.out.println("========= Transferência ====== ");
 		
-		if (this.debitar(valor)){
-			operacao = destino.creditar(valor);
+		if (this.debit(valor)){
+			operacao = destino.credit(valor);
 		}
 		System.out.println("============================== ");
 		
