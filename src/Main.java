@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import account.Account;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -18,9 +20,9 @@ public class Main {
 		c2.debit(10);
 		c3.debit(10);
 		
-		c3.transferir(290, c1);
-		c1.transferir(380, c2);
-		c2.transferir(380, c1);
+		c3.transference(290, c1);
+		c1.transference(380, c2);
+		c2.transference(380, c1);
 		
 		System.out.println("Balance of c1: " + c1.getBalance());
 		System.out.println("Balance of c2: " + c2.getBalance());
@@ -52,6 +54,8 @@ public class Main {
 			}
 			
 		}while(menu!=0);
+		
+		input.close();
 	
 	}
 
