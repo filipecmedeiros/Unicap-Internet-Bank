@@ -53,6 +53,24 @@ public class User {
             e.printStackTrace();
         }
     }
+    
+    @Override
+    public String toString () {
+    	return this.cpf;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+    	boolean operation = false;
+		if (obj instanceof User) {
+			User user = (User) obj;
+			operation = this.cpf.equals(user.cpf) && 
+					this.name.equals(user.name) &&
+					this.age.equals(user.age);
+		}
+		
+		return operation;
+    }
 
     public void setKind(UserKind kind) {
         this.kind = kind;

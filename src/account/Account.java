@@ -14,6 +14,24 @@ public class Account {
 		this.balance = 0;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return this.id;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean operation = false;
+		if (obj instanceof Account) {
+			Account account = (Account) obj;
+			operation = this.id.equals(account.id) && this.balance == account.balance;
+		}
+		
+		return operation;
+	}
+	
+	
 	public String getId() {
 		return id;
 	}
