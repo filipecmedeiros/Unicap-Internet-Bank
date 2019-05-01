@@ -11,6 +11,7 @@ public class User {
     private String name;
     private String cpf;
     private Date age;
+    private UserKind kind;
 
 
     public User(String name, String cpf, String age) {
@@ -21,6 +22,7 @@ public class User {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        this.kind = UserKind.STANDARD;
         
     }
 
@@ -50,6 +52,14 @@ public class User {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setKind(UserKind kind) {
+        this.kind = kind;
+    }
+
+    public int getKind(UserKind kind) {
+        return this.kind.getKind();
     }
 
 }
