@@ -1,20 +1,25 @@
 import java.util.Scanner;
 
 import account.Account;
+import account.AccountsRepository;
+import account.SavingsAccount;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		Account c1, c2, c3;
+		SavingsAccount p1, p2, p3;
 		
 		c1 = new Account ("0000-0");
 		c2 = new Account("0001-0");
 		c3 = new Account("0002-0");
 		
+		
 		c1.credit(100);
 		c2.credit(200);
 		c3.credit(300);
+		
 		
 		c1.debit(10);
 		c2.debit(10);
@@ -28,6 +33,51 @@ public class Main {
 		System.out.println("Balance of c2: " + c2.getBalance());
 		System.out.println("Balance of c3: " + c3.getBalance());
 	
+		
+		p1 = new SavingsAccount("1234-0", 0.0);
+		p2 = new SavingsAccount("9876-0", 0.0);
+		p3 = new SavingsAccount("4567-1", 0.0);
+		
+		p1.credit(100);
+		p2.credit(200);
+		p3.credit(300);
+		
+		p1.earnInterest(0.01f);
+		p2.earnInterest(0.1f);
+		p3.earnInterest(0.5f);
+		
+		System.out.println("Balance of p1: " + p1.getBalance());
+		System.out.println("Balance of p2: " + p2.getBalance());
+		System.out.println("Balance of p3: " + p3.getBalance());
+		
+		
+		AccountsRepository eBank;
+		
+		eBank = new AccountsRepository(100);
+		
+		boolean result;
+		result = eBank.add(c1);
+		System.out.println(result);
+		eBank.add(c2);
+		eBank.add(c3);
+		eBank.add(p1);
+		//eBank.add(p2);
+		eBank.add(p3);
+		
+		eBank.print();
+		
+		System.out.println(eBank.get(p2));
+		
+		System.out.println(eBank.get(c1));
+		System.out.println(eBank.get(p1));
+		
+		
+		eBank.remove(c2);
+		eBank.remove(p1);
+		
+		eBank.print();
+		
+		
 		int menu;
 		do {
 			System.out.println("Menu:");
@@ -41,6 +91,7 @@ public class Main {
 			switch(menu) {
 				case 0: break;
 				case 1:
+						
 						break;
 				case 2:
 						break;
