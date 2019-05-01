@@ -29,8 +29,8 @@ public class User {
     }
 
     public void setName(String name) {
-		this.name = name;
-	}
+        this.name = name;
+    }
 
     public String getCpf() {
         return this.cpf;
@@ -50,6 +50,6 @@ public class User {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-	}
+    }
 
 }
