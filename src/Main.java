@@ -3,6 +3,8 @@ import java.util.Scanner;
 import account.Account;
 import account.AccountsRepository;
 import account.SavingsAccount;
+import user.User;
+import user.UserRepository;
 
 public class Main {
 
@@ -76,6 +78,31 @@ public class Main {
 		eBank.remove(p1);
 		
 		eBank.print();
+		
+		
+		User u1, u2, u3;
+		
+		u1 = new User("Aderbal", "000.000.000-00", "01/04/2000");
+		u2 = new User("Etevaldo", "111.111.111-11", "02/03/1980");
+		u3 = new User("Zidane", "222.222.222-22", "03/05/1975");
+		
+		System.out.println(u1);
+		System.out.println(u2);
+		System.out.println(u3);
+		
+		UserRepository clients;
+		
+		clients = new UserRepository (100);
+		clients.add(u1);
+		clients.add(u3);
+		
+		clients.print();
+		
+		clients.remove(u1);
+		clients.add(u2);
+		
+		clients.print();
+		
 		
 		
 		int menu;
