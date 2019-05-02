@@ -10,6 +10,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+
+		// Testing Account
 		Account c1, c2, c3;
 		SavingsAccount p1, p2, p3;
 		
@@ -17,11 +19,9 @@ public class Main {
 		c2 = new Account("0001-0");
 		c3 = new Account("0002-0");
 		
-		
 		c1.credit(100);
 		c2.credit(200);
 		c3.credit(300);
-		
 		
 		c1.debit(10);
 		c2.debit(10);
@@ -36,6 +36,7 @@ public class Main {
 		System.out.println("Balance of c3: " + c3.getBalance());
 	
 		
+		// Testing SavingsAccount
 		p1 = new SavingsAccount("1234-0", 0.0);
 		p2 = new SavingsAccount("9876-0", 0.0);
 		p3 = new SavingsAccount("4567-1", 0.0);
@@ -53,6 +54,7 @@ public class Main {
 		System.out.println("Balance of p3: " + p3.getBalance());
 		
 		
+		// Testing AccountRespository
 		AccountsRepository eBank;
 		
 		eBank = new AccountsRepository(100);
@@ -80,16 +82,27 @@ public class Main {
 		eBank.print();
 		
 		
+		// Testing User
 		User u1, u2, u3;
 		
 		u1 = new User("Aderbal", "000.000.000-00", "01/04/2000");
 		u2 = new User("Etevaldo", "111.111.111-11", "02/03/1980");
 		u3 = new User("Zidane", "222.222.222-22", "03/05/1975");
 		
+		System.out.println(u1.getName());
+		System.out.println(u1.getAge());
+		System.out.println(u1.getCpf());
+		System.out.println(u1.getKind());
+		System.out.println();
 		System.out.println(u1);
 		System.out.println(u2);
 		System.out.println(u3);
+		System.out.println(u3.getKind());
+		u3.setKind(2);
+		System.out.println(u3.getKind());
 		
+
+		// Testing UserRepository
 		UserRepository clients;
 		
 		clients = new UserRepository (100);
@@ -102,6 +115,10 @@ public class Main {
 		clients.add(u2);
 		
 		clients.print();
+
+		System.out.println(clients.get(u1));
+		System.out.println(clients.get(u2));
+		System.out.println(clients.exist(u2));
 		
 		
 		
