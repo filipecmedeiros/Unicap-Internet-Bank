@@ -53,6 +53,22 @@ public class User {
             e.printStackTrace();
         }
     }
+
+    public void setKind(int kind) {
+        if(kind == 0){
+            this.kind = UserKind.STANDARD;
+        }
+        if(kind == 1){
+            this.kind = UserKind.VIP;
+        }
+        if(kind == 2){
+            this.kind = UserKind.EXECUTIVO;
+        }
+    }
+
+    public UserKind getKind() {
+        return this.kind;
+    }
     
     @Override
     public String toString () {
@@ -71,13 +87,4 @@ public class User {
 		
 		return operation;
     }
-
-    public void setKind(UserKind kind) {
-        this.kind = kind;
-    }
-
-    public int getKind(UserKind kind) {
-        return this.kind.getKind();
-    }
-
 }
