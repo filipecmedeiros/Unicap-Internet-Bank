@@ -68,7 +68,7 @@ public class Main {
 		//eBank.add(p2);
 		eBank.add(p3);
 		
-		eBank.print();
+		System.out.println(eBank);
 		
 		System.out.println(eBank.get(p2));
 		
@@ -79,7 +79,7 @@ public class Main {
 		eBank.remove(c2);
 		eBank.remove(p1);
 		
-		eBank.print();
+		System.out.println(eBank);
 		
 		
 		// Testing User
@@ -109,19 +109,19 @@ public class Main {
 		clients.add(u1);
 		clients.add(u3);
 		
-		clients.print();
+		System.out.println(clients);
 		
 		clients.remove(u1);
 		clients.add(u2);
 		
-		clients.print();
+		System.out.println(clients);
 
 		System.out.println(clients.get(u1));
 		System.out.println(clients.get(u2));
 		System.out.println(clients.exist(u2));
 		
 		
-		
+		/*
 		int menu;
 		do {
 			System.out.println("Menu:");
@@ -149,7 +149,7 @@ public class Main {
 			}
 			
 		}while(menu!=0);
-		
+		*/
 		input.close();
 	
 	}

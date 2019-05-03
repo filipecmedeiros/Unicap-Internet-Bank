@@ -31,12 +31,13 @@ public class UserRepository {
 		this.lenght = lenght;
 	}
 	
-	public void print() {
-		System.out.print("[ ");
+	public String toString() {
+		String str = "[ ";
 		for (int i=0; i<getLenght(); i++) {
-			System.out.print(userRepository[i] + ", ");
+			str += userRepository[i] + " ";
 		}
-		System.out.println("]");
+		str = str + "]";
+		return str;
 	}
 	
 	public int get(User user) {

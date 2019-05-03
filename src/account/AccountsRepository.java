@@ -28,12 +28,13 @@ public class AccountsRepository {
 	}
 	
 	
-	public void print() {
-		System.out.print("[ ");
+	public String toString() {
+		String str = "[ ";
 		for (int i=0; i<getLenght(); i++) {
-			System.out.print(accountsRepository[i] + ", ");
+			str += accountsRepository[i] + " ";
 		}
-		System.out.println("]");
+		str += "]";
+		return str;
 	}
 	
 	public int get(Account account) {
