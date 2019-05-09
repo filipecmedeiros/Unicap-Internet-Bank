@@ -1,12 +1,12 @@
 package account;
 
 public class AccountsRepository {
-	private Account [] accountsRepository ;
+	private AbstractAccount [] accountsRepository ;
 	private int size;
 	private int lenght;
 	
 	public AccountsRepository (int size) {
-		this.accountsRepository = new Account [size];
+		this.accountsRepository = new AbstractAccount [size];
 		this.size = size;
 		this.lenght = 0;
 	}
@@ -37,7 +37,7 @@ public class AccountsRepository {
 		return str;
 	}
 	
-	public int get(Account account) {
+	public int get(AbstractAccount account) {
 		int i=0;
 		if (accountsRepository != null) {
 			if (lenght > 0) {
@@ -51,7 +51,7 @@ public class AccountsRepository {
 		return -1;
 	}
 	
-	public boolean exist(Account account) {
+	public boolean exist(AbstractAccount account) {
 		boolean exist = false;
 		
 		if (get(account) != -1) {
@@ -61,7 +61,7 @@ public class AccountsRepository {
 		return exist;
 	}
 	
-	public boolean add (Account account) {
+	public boolean add (AbstractAccount account) {
 		boolean operation = false;
 		if (accountsRepository != null) {
 			if (lenght < size && !exist(account)) {
@@ -74,7 +74,7 @@ public class AccountsRepository {
 		return operation;
 	}
 	
-	public boolean remove (Account account) {
+	public boolean remove (AbstractAccount account) {
 		boolean operation = false;
 		if (accountsRepository != null) {
 			int index = get(account);
