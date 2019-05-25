@@ -2,8 +2,12 @@ package account;
 
 public class SavingsAccount extends Account{
 	
-	public SavingsAccount(String number, double balance) {
-		super(number, balance);
+	public SavingsAccount(String id, double balance) {
+		super(id, balance);
+	}
+	
+	public SavingsAccount (String id) {
+		super(id);
 	}
 	
 	public boolean earnInterest (float interest) {
@@ -12,4 +16,5 @@ public class SavingsAccount extends Account{
 		operation = this.credit(balance*interest);
 		return operation;
 	}
+
 }

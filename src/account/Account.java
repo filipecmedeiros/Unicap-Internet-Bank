@@ -1,15 +1,19 @@
 package account;
 
+import user.User;
+
 public class Account extends AbstractAccount {
 	
+	public Account (String id, double balance, User client) {
+		super(id, balance, client);
+	}
+	
 	public Account(String id, double balance) {
-		this.setId(id);
-		this.setBalance(balance);
+		super(id, balance);
 	}
 	
 	public Account (String id) {
-		this.setId(id);
-		this.setBalance(0);
+		super(id);
 	}
 	
 	@Override

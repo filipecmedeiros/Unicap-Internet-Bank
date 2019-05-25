@@ -1,8 +1,29 @@
 package account;
 
+import user.User;
+
 public abstract class AbstractAccount {
 	private String id;
 	private double balance;
+	private User client;
+	
+	public AbstractAccount(String id, double balance, User client) {
+		this.id = id;
+		this.balance = balance;
+		this.setClient(client);
+	}
+	
+	public AbstractAccount(String id, double balance) {
+		this.id = id;
+		this.balance = balance;
+		this.setClient(null);
+	}
+	
+	public AbstractAccount(String id) {
+		this.id = id;
+		this.balance = 0;
+		this.setClient(null);
+	}
 	
 	@Override
 	public String toString() {
@@ -12,8 +33,8 @@ public abstract class AbstractAccount {
 	@Override
 	public boolean equals(Object obj) {
 		boolean operation = false;
-		if (obj instanceof Account) {
-			AbstractAccount absAccount = (Account) obj;
+		if (obj instanceof AbstractAccount) {
+			AbstractAccount absAccount = (AbstractAccount) obj;
 			operation = this.id.equals(absAccount.id) && this.balance == absAccount.balance;
 		}
 		
@@ -24,6 +45,7 @@ public abstract class AbstractAccount {
 	public String getId() {
 		return id;
 	}
+	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -31,8 +53,17 @@ public abstract class AbstractAccount {
 	public double getBalance() {
 		return balance;
 	}
+	
 	public void setBalance(double balance) {
 		this.balance = balance;
+	}
+	
+	public User getClient() {
+		return client;
+	}
+
+	public void setClient(User client) {
+		this.client = client;
 	}
 	
 	public boolean credit (double value) {
@@ -63,4 +94,5 @@ public abstract class AbstractAccount {
 		
 		return operation;
 	}
+
 }
