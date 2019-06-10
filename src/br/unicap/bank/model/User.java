@@ -1,27 +1,17 @@
-package user;
-
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
-
+package br.unicap.bank.model;
 
 public class User {
-    private SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
     private String name;
     private String cpf;
-    private Date age;
+    private String age;
     private UserKind kind;
 
 
     public User(String name, String cpf, String age) {
         this.name = name;
         this.cpf = cpf;
-        try {
-            this.age = DATE_FORMAT.parse(age);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        this.age = age;
         this.kind = UserKind.STANDARD;
         
     }
@@ -43,15 +33,11 @@ public class User {
     }
 
     public String getAge() {
-        return DATE_FORMAT.format(this.age);
+        return this.age;
     }
 
     public void setAge(String age) {
-        try {
-            this.age = DATE_FORMAT.parse(age);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        this.age = age;
     }
 
     public void setKind(int kind) {

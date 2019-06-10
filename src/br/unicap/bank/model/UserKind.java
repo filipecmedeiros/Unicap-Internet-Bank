@@ -1,4 +1,4 @@
-package user;
+package br.unicap.bank.model;
 
 
 public enum UserKind {
