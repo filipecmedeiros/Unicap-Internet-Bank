@@ -5,32 +5,11 @@ import br.unicap.bank.exceptions.InsuficientBalanceException;
 import br.unicap.bank.exceptions.NegativeCreditException;
 import br.unicap.bank.exceptions.NegativeDebitException;
 
-public class CtrlAccount{
+public class CtrlAccount extends Controller <AbstractAccount>{
 	private IRepAccount accounts;
 	
 	public CtrlAccount(IRepAccount rep) {
-		;
-	}
-
-	public void create (AbstractAccount account) throws Exception {
-		if (!accounts.exists(account)) {
-			accounts.create(account);
-		}
-		else {
-			throw new Exception();
-		}
-	}
-	
-	public AbstractAccount read (String id) {
-		return accounts.read(id);
-	}
-	
-	public void update (AbstractAccount account) {
-		accounts.update(account);
-	}
-	
-	public void delete (AbstractAccount account) {
-		accounts.delete(account);
+		super(rep);
 	}
 	
 	public void credit (String id, double value) throws NegativeCreditException {

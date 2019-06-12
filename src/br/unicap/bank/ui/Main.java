@@ -26,7 +26,7 @@ public class Main {
 		u1 = new User("Aderbal", "000.000.000-00", "01/04/2000");
 		u2 = new User("Etevaldo", "111.111.111-11", "02/03/1980");
 		u3 = new User("Zidane", "222.222.222-22", "03/05/1975");
-		
+
 		Facade.init();
 		try {
 			Facade.getInstance().create(u1);
@@ -46,6 +46,10 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 		
+		System.out.println(Facade.getInstance().readUser("000.000.000-00"));
+		System.out.println(Facade.getInstance().readUser("111.111.111-11"));
+		System.out.println(Facade.getInstance().readUser("222.222.222-22"));
+		System.out.println(Facade.getInstance().readUser("123.456.789-00"));
 		
 		//testAccount();
 		//testSavingAccount();

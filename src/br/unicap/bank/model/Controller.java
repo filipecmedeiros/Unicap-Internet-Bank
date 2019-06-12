@@ -3,19 +3,19 @@ package br.unicap.bank.model;
 import br.unicap.bank.data.IRep;
 
 public class Controller <T>{
-	private IRep repository;
+	private IRep<T> repository;
 	
-	public Controller(IRep rep) {
-		this.repository = rep;
+	public Controller(IRep<T> rep) {
+		this.repository = (IRep<T>) rep;
 	}
-	
-	public IRep getRepository() {
+
+	public IRep<T> getRepository() {
 		return this.repository;
 	}
 	
 	public void create(T o) throws Exception{
-		if (!repository.exists(o)) {
-			repository.create(o);
+		if (!repository.exists((T) o)) {
+			repository.create((T) o);
 		}
 		else {
 			throw new Exception();
@@ -23,7 +23,7 @@ public class Controller <T>{
 	}
 	
 	public T read(String s) {
-		return (T) repository.read(s);
+		return repository.read(s);
 	}
 	
 	public void update(T o) {
