@@ -1,6 +1,6 @@
 package br.unicap.bank.data;
 
-public abstract class ArrayRepository <T>{
+public abstract class ArrayRepository <T> implements IRep<T>{
 	private T [] array ;
 	private int size;
 	private int lenght;

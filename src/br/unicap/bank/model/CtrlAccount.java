@@ -1,15 +1,15 @@
 package br.unicap.bank.model;
 
-import br.unicap.bank.data.IRepAbstractAccount;
+import br.unicap.bank.data.IRepAccount;
 import br.unicap.bank.exceptions.InsuficientBalanceException;
 import br.unicap.bank.exceptions.NegativeCreditException;
 import br.unicap.bank.exceptions.NegativeDebitException;
 
-public class CtrlAbstractAccount {
-	private IRepAbstractAccount accounts;
+public class CtrlAccount{
+	private IRepAccount accounts;
 	
-	public CtrlAbstractAccount(IRepAbstractAccount rep) {
-		this.accounts = rep;
+	public CtrlAccount(IRepAccount rep) {
+		;
 	}
 
 	public void create (AbstractAccount account) throws Exception {
@@ -21,8 +21,8 @@ public class CtrlAbstractAccount {
 		}
 	}
 	
-	public void read (String id) {
-		accounts.read(id);
+	public AbstractAccount read (String id) {
+		return accounts.read(id);
 	}
 	
 	public void update (AbstractAccount account) {

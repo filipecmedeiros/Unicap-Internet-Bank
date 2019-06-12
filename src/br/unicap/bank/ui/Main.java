@@ -1,8 +1,9 @@
+package br.unicap.bank.ui;
 import java.util.Scanner;
 
 import br.unicap.bank.data.AccountsRepository;
 
-import br.unicap.bank.model.CtrlAbstractAccount;
+import br.unicap.bank.model.CtrlAccount;
 
 
 import br.unicap.bank.data.UserRepository;
@@ -20,9 +21,35 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		testAccount();
-		testSavingAccount();
-		testAccountRepository();
+		User u1, u2, u3;
+		
+		u1 = new User("Aderbal", "000.000.000-00", "01/04/2000");
+		u2 = new User("Etevaldo", "111.111.111-11", "02/03/1980");
+		u3 = new User("Zidane", "222.222.222-22", "03/05/1975");
+		
+		Facade.init();
+		try {
+			Facade.getInstance().create(u1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			Facade.getInstance().create(u2);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			Facade.getInstance().create(u3);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		//testAccount();
+		//testSavingAccount();
+		//testAccountRepository();
 		//testUser();
 		//testUserRepository();
 		
