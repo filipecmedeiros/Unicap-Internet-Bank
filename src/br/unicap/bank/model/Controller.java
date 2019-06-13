@@ -2,7 +2,7 @@ package br.unicap.bank.model;
 
 import br.unicap.bank.data.IRep;
 
-public class Controller <T>{
+public abstract class Controller <T>{
 	private IRep<T> repository;
 	
 	public Controller(IRep<T> rep) {
