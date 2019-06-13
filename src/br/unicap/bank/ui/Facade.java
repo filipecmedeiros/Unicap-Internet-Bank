@@ -83,7 +83,7 @@ public class Facade {
 		 account.credit(id, value);
 	 }
 	  
-	 public void debitar(String id, double value) throws NegativeDebitException, InsuficientBalanceException {
+	 public void debit(String id, double value) throws NegativeDebitException, InsuficientBalanceException {
 		 account.debit(id, value);
 	 }
 	  

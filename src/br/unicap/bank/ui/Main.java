@@ -49,7 +49,49 @@ public class Main {
 		System.out.println(Facade.getInstance().readUser("000.000.000-00"));
 		System.out.println(Facade.getInstance().readUser("111.111.111-11"));
 		System.out.println(Facade.getInstance().readUser("222.222.222-22"));
+		//null
 		System.out.println(Facade.getInstance().readUser("123.456.789-00"));
+		
+		
+		Account c1, c2, c3;
+		
+		c1 = new Account ("0000-0", 0, u1);
+		c2 = new Account("0001-0", 0, u2);
+		c3 = new Account("0002-0", 0, u3);
+		
+		try {
+			Facade.getInstance().create(c1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			Facade.getInstance().create(c2);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			Facade.getInstance().create(c3);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			Facade.getInstance().credit("0002-0", 200.0);
+		} catch (NegativeCreditException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.println(Facade.getInstance().readAccount("0002-0").getBalance());
+		
+		try {
+			Facade.getInstance().debit("0002-0", 50.0);
+		} catch (NegativeDebitException e) {
+			System.out.println(e.getMessage());
+		} catch (InsuficientBalanceException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.println(Facade.getInstance().readAccount("0002-0").getBalance());
 		
 		//testAccount();
 		//testSavingAccount();
